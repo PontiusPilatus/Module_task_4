@@ -13,8 +13,10 @@ class MainTableViewController: UIViewController {
     
     @IBOutlet weak var top: iCarousel!
     @IBOutlet weak var bottom: iCarousel!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: - Fields
+    // Carousels
     var topCurrency: String = ""
     var bottomCurrency: String = ""
     
@@ -45,7 +47,20 @@ class MainTableViewController: UIViewController {
         bottom.type = .linear
         self.hideKeyboardWhenTappedAround()
         
-        repeatedAction = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(self.updateRatesAndUI), userInfo: nil, repeats: true)
+        repeatedAction = Timer.scheduledTimer(timeInterval: 30,
+                                              target: self,
+                                              selector: #selector(self.updateRatesAndUI),
+                                              userInfo: nil,
+                                              repeats: true)
+        
+        // notify when keyboard appears to get rect bounds
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        
     }
     func resetSigns() {
         (top.currentItemView as! CurrencyView).sign.text = ""
@@ -296,8 +311,8 @@ extension MainTableViewController: UITextFieldDelegate {
         if textField.text! == "" {
             textField.text! = "0.00"
         }
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
-    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
@@ -430,5 +445,17 @@ extension UIViewController {
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+}
+
+extension MainTableViewController {
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            if (bottom.currentItemView as! CurrencyView).amount.isFirstResponder {
+                let keyboardHeight = Double(keyboardRectangle.height)
+                self.scrollView.setContentOffset(CGPoint(x: 0, y: keyboardHeight/2), animated: true)
+            }
+        }
     }
 }

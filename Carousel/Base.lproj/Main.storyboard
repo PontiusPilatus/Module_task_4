@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JF6-Lf-K6H">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,62 +15,74 @@
             <objects>
                 <viewController id="oPH-dO-UTC" customClass="MainTableViewController" customModule="Carousel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g73-AF-Mhl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mu0-hk-akw">
-                                <rect key="frame" x="0.0" y="114.00000000000001" width="414" height="155.33333333333337"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydm-un-kGE">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ctu-zt-qpQ" customClass="iCarousel">
-                                        <rect key="frame" x="8" y="8" width="398" height="139.33333333333334"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="oPH-dO-UTC" id="FJ5-In-Um2"/>
-                                            <outlet property="delegate" destination="oPH-dO-UTC" id="znJ-GA-eXE"/>
-                                        </connections>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mu0-hk-akw">
+                                        <rect key="frame" x="0.0" y="75" width="320" height="120"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ctu-zt-qpQ" customClass="iCarousel">
+                                                <rect key="frame" x="8" y="8" width="304" height="104"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="oPH-dO-UTC" id="FJ5-In-Um2"/>
+                                                    <outlet property="delegate" destination="oPH-dO-UTC" id="znJ-GA-eXE"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Ctu-zt-qpQ" secondAttribute="bottom" constant="8" id="5UM-e5-VeU"/>
+                                            <constraint firstAttribute="width" secondItem="Mu0-hk-akw" secondAttribute="height" multiplier="8:3" id="Cgi-fY-B3H"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ctu-zt-qpQ" secondAttribute="trailing" constant="8" id="kS9-Ly-eC1"/>
+                                            <constraint firstItem="Ctu-zt-qpQ" firstAttribute="leading" secondItem="Mu0-hk-akw" secondAttribute="leading" constant="8" id="xUC-Do-8YU"/>
+                                            <constraint firstItem="Ctu-zt-qpQ" firstAttribute="top" secondItem="Mu0-hk-akw" secondAttribute="top" constant="8" id="yVe-mb-z3e"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDQ-1a-Q1g">
+                                        <rect key="frame" x="0.0" y="270" width="320" height="120"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSH-Rx-6eZ" customClass="iCarousel">
+                                                <rect key="frame" x="8" y="8" width="304" height="104"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="oPH-dO-UTC" id="ZND-6T-5GS"/>
+                                                    <outlet property="delegate" destination="oPH-dO-UTC" id="VdW-a0-hvd"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <constraints>
+                                            <constraint firstItem="fSH-Rx-6eZ" firstAttribute="leading" secondItem="UDQ-1a-Q1g" secondAttribute="leading" constant="8" id="9IA-Oo-0xr"/>
+                                            <constraint firstItem="fSH-Rx-6eZ" firstAttribute="top" secondItem="UDQ-1a-Q1g" secondAttribute="top" constant="8" id="CCc-Fq-icl"/>
+                                            <constraint firstAttribute="bottom" secondItem="fSH-Rx-6eZ" secondAttribute="bottom" constant="8" id="OeE-yq-xox"/>
+                                            <constraint firstAttribute="trailing" secondItem="fSH-Rx-6eZ" secondAttribute="trailing" constant="8" id="kNL-dv-xo6"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Ctu-zt-qpQ" firstAttribute="top" secondItem="Mu0-hk-akw" secondAttribute="top" constant="8" id="CWX-rw-k9F"/>
-                                    <constraint firstItem="Ctu-zt-qpQ" firstAttribute="leading" secondItem="Mu0-hk-akw" secondAttribute="leading" constant="8" id="O2g-Pj-KCJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ctu-zt-qpQ" secondAttribute="bottom" constant="8" id="S9o-ZB-IHf"/>
-                                    <constraint firstAttribute="width" secondItem="Mu0-hk-akw" secondAttribute="height" multiplier="8:3" id="UeX-WM-LPy"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ctu-zt-qpQ" secondAttribute="trailing" constant="8" id="buI-Vx-plI"/>
+                                    <constraint firstItem="UDQ-1a-Q1g" firstAttribute="leading" secondItem="ydm-un-kGE" secondAttribute="leading" id="5hf-e1-hGA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mu0-hk-akw" secondAttribute="trailing" id="A34-Om-LUS"/>
+                                    <constraint firstItem="Mu0-hk-akw" firstAttribute="leading" secondItem="ydm-un-kGE" secondAttribute="leading" id="JUh-UP-Goh"/>
+                                    <constraint firstItem="Mu0-hk-akw" firstAttribute="top" secondItem="ydm-un-kGE" secondAttribute="top" constant="75" id="KdV-bi-N9r"/>
+                                    <constraint firstItem="UDQ-1a-Q1g" firstAttribute="width" secondItem="Mu0-hk-akw" secondAttribute="width" id="MvQ-yc-vpW"/>
+                                    <constraint firstItem="Mu0-hk-akw" firstAttribute="centerX" secondItem="ydm-un-kGE" secondAttribute="centerX" id="ShQ-Mq-7PE"/>
+                                    <constraint firstItem="UDQ-1a-Q1g" firstAttribute="height" secondItem="Mu0-hk-akw" secondAttribute="height" id="T4z-t4-mUL"/>
+                                    <constraint firstItem="UDQ-1a-Q1g" firstAttribute="top" secondItem="Mu0-hk-akw" secondAttribute="bottom" constant="75" id="Ygv-V4-mKX"/>
+                                    <constraint firstAttribute="trailing" secondItem="UDQ-1a-Q1g" secondAttribute="trailing" id="sP9-MC-c1W"/>
+                                    <constraint firstAttribute="bottom" secondItem="UDQ-1a-Q1g" secondAttribute="bottom" constant="187" id="tQq-ZL-Z8Q"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDQ-1a-Q1g">
-                                <rect key="frame" x="0.0" y="369.33333333333331" width="414" height="155.33333333333331"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSH-Rx-6eZ" customClass="iCarousel">
-                                        <rect key="frame" x="8" y="8" width="398" height="139.33333333333334"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="oPH-dO-UTC" id="ZND-6T-5GS"/>
-                                            <outlet property="delegate" destination="oPH-dO-UTC" id="VdW-a0-hvd"/>
-                                        </connections>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="fSH-Rx-6eZ" firstAttribute="leading" secondItem="UDQ-1a-Q1g" secondAttribute="leading" constant="8" id="14l-Fu-r2C"/>
-                                    <constraint firstAttribute="bottom" secondItem="fSH-Rx-6eZ" secondAttribute="bottom" constant="8" id="P7R-3R-DZX"/>
-                                    <constraint firstAttribute="trailing" secondItem="fSH-Rx-6eZ" secondAttribute="trailing" constant="8" id="PIQ-Ko-3eD"/>
-                                    <constraint firstItem="fSH-Rx-6eZ" firstAttribute="top" secondItem="UDQ-1a-Q1g" secondAttribute="top" constant="8" id="VLv-Vu-RCP"/>
-                                    <constraint firstAttribute="width" secondItem="UDQ-1a-Q1g" secondAttribute="height" multiplier="8:3" id="XIZ-TL-MUL"/>
-                                </constraints>
-                            </view>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.87881856477322362" green="0.87881856477322362" blue="0.87881856477322362" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Mu0-hk-akw" firstAttribute="trailing" secondItem="c2x-Oz-yqc" secondAttribute="trailing" id="1n6-gB-C3V"/>
-                            <constraint firstItem="Mu0-hk-akw" firstAttribute="leading" secondItem="c2x-Oz-yqc" secondAttribute="leading" id="IJB-6e-aOP"/>
-                            <constraint firstItem="Mu0-hk-akw" firstAttribute="top" secondItem="c2x-Oz-yqc" secondAttribute="top" constant="50" id="P1R-9V-b19"/>
-                            <constraint firstItem="UDQ-1a-Q1g" firstAttribute="top" secondItem="Mu0-hk-akw" secondAttribute="bottom" constant="100" id="UQs-lW-PgB"/>
-                            <constraint firstItem="UDQ-1a-Q1g" firstAttribute="trailing" secondItem="c2x-Oz-yqc" secondAttribute="trailing" id="Wzg-Sn-JX7"/>
-                            <constraint firstItem="Mu0-hk-akw" firstAttribute="trailing" secondItem="c2x-Oz-yqc" secondAttribute="trailing" id="hgh-5d-xxw"/>
-                            <constraint firstItem="UDQ-1a-Q1g" firstAttribute="leading" secondItem="c2x-Oz-yqc" secondAttribute="leading" id="kgE-oG-QgU"/>
-                            <constraint firstItem="Mu0-hk-akw" firstAttribute="leading" secondItem="c2x-Oz-yqc" secondAttribute="leading" id="pxy-gb-Ezg"/>
+                            <constraint firstItem="ydm-un-kGE" firstAttribute="top" secondItem="c2x-Oz-yqc" secondAttribute="top" id="Api-2e-w14"/>
+                            <constraint firstItem="ydm-un-kGE" firstAttribute="leading" secondItem="c2x-Oz-yqc" secondAttribute="leading" id="adZ-0h-bOe"/>
+                            <constraint firstItem="ydm-un-kGE" firstAttribute="bottom" secondItem="c2x-Oz-yqc" secondAttribute="bottom" id="fPd-Bs-nam"/>
+                            <constraint firstItem="ydm-un-kGE" firstAttribute="trailing" secondItem="c2x-Oz-yqc" secondAttribute="trailing" id="whf-HR-qq5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c2x-Oz-yqc"/>
                     </view>
@@ -83,6 +95,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bottom" destination="fSH-Rx-6eZ" id="hTS-C3-Zr2"/>
+                        <outlet property="scrollView" destination="ydm-un-kGE" id="dbD-Sx-65W"/>
                         <outlet property="top" destination="Ctu-zt-qpQ" id="q8r-Ov-Sx7"/>
                     </connections>
                 </viewController>
@@ -96,7 +109,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JF6-Lf-K6H" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hAT-pD-7Gv">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
