@@ -62,22 +62,37 @@ class MainTableViewController: UIViewController {
         )
         
     }
+    
+    /// reset signs label
     func resetSigns() {
         (top.currentItemView as! CurrencyView).sign.text = ""
         (bottom.currentItemView as! CurrencyView).sign.text = ""
     }
+    
+    /// Updates UI
     func updateUI() {
         self.top.reloadData()
         self.bottom.reloadData()
     }
-    
+    /// Shows pop-up
+    ///
+    /// - Parameter message: message to display
+    func showSummary(message: String) {
+        let alert = UIAlertController(title: "Current balance", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Understandable", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     // MARK: - Actions
-
+    
+    /// Make a transaction
+    ///
+    /// - Parameter sender: sender
     @IBAction func transaction(_ sender: Any) {
         
         let topView = top.currentItemView as! CurrencyView
         let botView = bottom.currentItemView as! CurrencyView
 
+        // Checks if data is present
         guard let topCurrencyName = topView.name.text else {
             showSummary(message: "Can't recognize top currency")
             return
@@ -96,7 +111,7 @@ class MainTableViewController: UIViewController {
             showSummary(message: "Can't recognize bot currency amount")
             return
         }
-        
+        // Replace ',' with '.' for double convertor
         topCurrencyAmountString = topCurrencyAmountString.replacingOccurrences(of: ",", with: ".")
         botCurrencyAmountString = botCurrencyAmountString.replacingOccurrences(of: ",", with: ".")
         
@@ -110,7 +125,7 @@ class MainTableViewController: UIViewController {
         
         var topCurrency = self.currencyRepository[0]!
         var botCurrency = self.currencyRepository[0]!
-        
+        // Searching for currencies by their names
         for currency in self.currencyRepository.getData() {
             if (currency.name == topCurrencyName) {
                 topCurrency = currency
@@ -119,7 +134,7 @@ class MainTableViewController: UIViewController {
                 botCurrency = currency
             }
         }
-        
+        // Make exchange
         if (topCurrency.name == botCurrency.name) {
             showSummary(message: "Can't exchange \(topCurrencyName) to \(botCurrencyName)")
             return
@@ -131,8 +146,9 @@ class MainTableViewController: UIViewController {
                     showSummary(message: "Can't get rate for \(topCurrencyName) to \(botCurrencyName)")
                     return
                 }
-                botCurrency.balance += topCurrencyAmount * NSNumber(floatLiteral: rate).decimalValue
                 topCurrency.balance -= topCurrencyAmount
+                // не теряем и центика
+                botCurrency.balance += topCurrencyAmount * NSNumber(floatLiteral: rate).decimalValue
             } else {
                 showSummary(message: "You need \(topCurrencyAmount)\(topCurrency.sign) but you have \(topCurrency.balanceToString())\(topCurrency.sign)")
             }
@@ -145,15 +161,18 @@ class MainTableViewController: UIViewController {
                     return
                 }
                 botCurrency.balance -= botCurrencyAmount
+                // не теряем и центика
                 topCurrency.balance += botCurrencyAmount * NSNumber(floatLiteral: rate).decimalValue
             } else {
                 showSummary(message: "You need \(botCurrencyAmount)\(botCurrency.sign) but you have \(botCurrency.balanceToString())\(botCurrency.sign)")
             }
         }
         
+        // Save values to storage
         currencyRepository.saveDump(currencyName: topCurrencyName, balance: topCurrency.balance)
         currencyRepository.saveDump(currencyName: botCurrencyName, balance: botCurrency.balance)
-
+        
+        // Show info about account
         let message = "You now have:\n" +
             "\(self.currencyRepository[0]!.name):\t\(NSString(format:"%.2f",(self.currencyRepository[0]!.balance as NSDecimalNumber).doubleValue))\n" +
             "\(self.currencyRepository[1]!.name):\t\(NSString(format:"%.2f",(self.currencyRepository[1]!.balance as NSDecimalNumber).doubleValue))\n" +
@@ -165,14 +184,11 @@ class MainTableViewController: UIViewController {
         self.updateUI()
     }
     
-    func showSummary(message: String) {
-        let alert = UIAlertController(title: "Current balance", message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Understandable", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
+
     
     // MARK: - Rates stuff
-
+    
+    /// asyn fetch rate
     func fetchRates()  {
         let urlString = "https://api.exchangeratesapi.io/latest"
                 
@@ -198,6 +214,7 @@ class MainTableViewController: UIViewController {
         
     }
     
+    /// update rates depending on EUR base
     func updateRates() {
         
         guard var rates = self._rates else { return }
@@ -213,12 +230,28 @@ class MainTableViewController: UIViewController {
         }
     }
     
+    /// Update Rates and display them
     @objc func updateRatesAndUI() {
         fetchRates()
         
         dispatchGroup.notify(queue: .main) {
             self.updateRates()
-            self.updateUI()
+            
+            let topView = self.top.currentItemView as! CurrencyView
+            let botView = self.bottom.currentItemView as! CurrencyView
+            
+            let topCurrencyName = topView.name.text!
+            let botCurrencyName = botView.name.text!
+            
+            let topCurrency = self.currencyRepository.getCurrency(currencyName: topCurrencyName)!
+            let botCurrency = self.currencyRepository.getCurrency(currencyName: botCurrencyName)!
+            
+            topView.setRate(rate: topCurrency.rates[botCurrencyName]!,
+                            sign: topCurrency.sign, targetSign: botCurrency.sign)
+            
+            botView.setRate(rate: botCurrency.rates[botCurrencyName]!,
+                            sign: botCurrency.sign, targetSign: topCurrency.sign)
+            
         }
     }
 }
@@ -231,6 +264,7 @@ extension MainTableViewController: iCarouselDataSource, iCarouselDelegate {
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
+        /// Creating view on each card
         let width = UIScreen.main.bounds.width - 20
         let view = Bundle.main.loadNibNamed("CurrencyLayout", owner: self, options: nil)?.first as! CurrencyView
         
@@ -244,6 +278,8 @@ extension MainTableViewController: iCarouselDataSource, iCarouselDelegate {
         
         var targetCurrencyName: String = ""
         var targetCurrencyIndex: Int = 0
+        
+        // Searching for rate to display
         if (carousel == top) {
             targetCurrencyName = bottomCurrency
             for i in 0 ..< self.currencyRepository.count {
@@ -274,6 +310,7 @@ extension MainTableViewController: iCarouselDataSource, iCarouselDelegate {
     }
     
     func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
+        // Edit space between cards
         if option == .spacing {
             return value * 1.015
         }
@@ -376,6 +413,11 @@ extension MainTableViewController: UITextFieldDelegate {
         return status
     }
     
+    
+    /// Checks that string is a vaild number
+    ///
+    /// - Parameter amount: user input amount
+    /// - Returns: if string is valid amount
     func validateAmount(amount: String) -> Bool {
         var separators = false
         
@@ -385,6 +427,8 @@ extension MainTableViewController: UITextFieldDelegate {
                     return false
                 }
                 separators = true
+            } else if !char.isNumber {
+                return false
             }
         }
         
@@ -400,6 +444,11 @@ extension MainTableViewController: UITextFieldDelegate {
         return false
     }
     
+    /// Displays how much amount will grow
+    ///
+    /// - Parameters:
+    ///   - amount: amount in string
+    ///   - textField: source textfield
     func showAmount(amount: String, textField: UITextField) {
         let topview = top.currentItemView as! CurrencyView
         let botview = bottom.currentItemView as! CurrencyView
@@ -409,6 +458,7 @@ extension MainTableViewController: UITextFieldDelegate {
         
         let fmtAmount = amount.replacingOccurrences(of: ",", with: ".")
         
+        // Searching for currencies
         for currency in currencyRepository.getData() {
             if currency.name == topview.name.text! {
                 topCurrency = currency
@@ -417,7 +467,7 @@ extension MainTableViewController: UITextFieldDelegate {
                 botCurrency = currency
             }
         }
-        
+        // Sets signs to each card
         if topview.amount == textField {
             
             let topAmount = Double(fmtAmount)!
@@ -452,6 +502,7 @@ extension MainTableViewController {
     @objc func keyboardWillShow(_ notification: Notification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
+            // get keyboard height and move up view if the textfield is in bottom carousel
             if (bottom.currentItemView as! CurrencyView).amount.isFirstResponder {
                 let keyboardHeight = Double(keyboardRectangle.height)
                 self.scrollView.setContentOffset(CGPoint(x: 0, y: keyboardHeight/2), animated: true)

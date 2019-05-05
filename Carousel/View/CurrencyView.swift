@@ -27,4 +27,9 @@ class CurrencyView: UIView {
         self.amount.text = "0.00"
         
     }
+    
+    func setRate(rate: Double, sign: String, targetSign: String) {
+        let fmtRate = NSString(format:"%.2f", rate)
+        self.rate.text = "\(sign)1 = \(fmtRate)\(targetSign)"
+    }
 }

@@ -82,6 +82,7 @@ class CurrencyRepository : NSObject, ICurrencyRepository {
         userDefaults.removeObject(forKey: "GBP")
         userDefaults.removeObject(forKey: "EUR")
     }
+    
     // MARK: - Currency Instances Managment
     
     func getCurrency(currencyName: String) -> Currency? {
