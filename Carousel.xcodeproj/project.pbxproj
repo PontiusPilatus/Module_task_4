@@ -8,22 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		970744272279D8CB006E25B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970744262279D8CB006E25B4 /* AppDelegate.swift */; };
-		970744292279D8CB006E25B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970744282279D8CB006E25B4 /* ViewController.swift */; };
 		9707442C2279D8CB006E25B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9707442A2279D8CB006E25B4 /* Main.storyboard */; };
 		9707442F2279D8CB006E25B4 /* Carousel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9707442D2279D8CB006E25B4 /* Carousel.xcdatamodeld */; };
 		970744312279D8CF006E25B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 970744302279D8CF006E25B4 /* Assets.xcassets */; };
 		970744342279D8CF006E25B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 970744322279D8CF006E25B4 /* LaunchScreen.storyboard */; };
+		970744452279D9C1006E25B4 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 970744442279D9C1006E25B4 /* iCarousel.m */; };
+		9707444F2279E8A6006E25B4 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9707444E2279E8A6006E25B4 /* Currency.swift */; };
+		970744532279EBC4006E25B4 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970744522279EBC4006E25B4 /* MainTableViewController.swift */; };
+		97074459227A040A006E25B4 /* CurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97074458227A0409006E25B4 /* CurrencyView.swift */; };
+		9707445D227A0938006E25B4 /* CurrencyLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9707445C227A0938006E25B4 /* CurrencyLayout.xib */; };
+		9707445F227AC39D006E25B4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9707445E227AC39D006E25B4 /* CustomTextField.swift */; };
+		97074462227B0B79006E25B4 /* Rates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97074461227B0B79006E25B4 /* Rates.swift */; };
+		97E6B4AD227B5B2F0002D180 /* CurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E6B4AC227B5B2F0002D180 /* CurrencyRepository.swift */; };
+		97E6B4AF227B62320002D180 /* ICurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E6B4AE227B62320002D180 /* ICurrencyRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		970744232279D8CB006E25B4 /* Carousel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carousel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		970744262279D8CB006E25B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		970744282279D8CB006E25B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9707442B2279D8CB006E25B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9707442E2279D8CB006E25B4 /* Carousel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Carousel.xcdatamodel; sourceTree = "<group>"; };
 		970744302279D8CF006E25B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		970744332279D8CF006E25B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		970744352279D8CF006E25B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		970744432279D9C1006E25B4 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		970744442279D9C1006E25B4 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		970744462279D9D5006E25B4 /* Carousel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Carousel-Bridging-Header.h"; sourceTree = "<group>"; };
+		9707444E2279E8A6006E25B4 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		970744522279EBC4006E25B4 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		97074458227A0409006E25B4 /* CurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyView.swift; sourceTree = "<group>"; };
+		9707445C227A0938006E25B4 /* CurrencyLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyLayout.xib; sourceTree = "<group>"; };
+		9707445E227AC39D006E25B4 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		97074461227B0B79006E25B4 /* Rates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rates.swift; sourceTree = "<group>"; };
+		97E6B4AC227B5B2F0002D180 /* CurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRepository.swift; sourceTree = "<group>"; };
+		97E6B4AE227B62320002D180 /* ICurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICurrencyRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +74,13 @@
 		970744252279D8CB006E25B4 /* Carousel */ = {
 			isa = PBXGroup;
 			children = (
+				970744492279DA5D006E25B4 /* View */,
+				970744482279DA52006E25B4 /* Model */,
+				970744472279DA46006E25B4 /* Controller */,
+				97074460227AC3A6006E25B4 /* Customs */,
+				9707443F2279D903006E25B4 /* iCarouselLib */,
+				970744462279D9D5006E25B4 /* Carousel-Bridging-Header.h */,
 				970744262279D8CB006E25B4 /* AppDelegate.swift */,
-				970744282279D8CB006E25B4 /* ViewController.swift */,
 				9707442A2279D8CB006E25B4 /* Main.storyboard */,
 				970744302279D8CF006E25B4 /* Assets.xcassets */,
 				970744322279D8CF006E25B4 /* LaunchScreen.storyboard */,
@@ -65,6 +88,51 @@
 				9707442D2279D8CB006E25B4 /* Carousel.xcdatamodeld */,
 			);
 			path = Carousel;
+			sourceTree = "<group>";
+		};
+		9707443F2279D903006E25B4 /* iCarouselLib */ = {
+			isa = PBXGroup;
+			children = (
+				970744432279D9C1006E25B4 /* iCarousel.h */,
+				970744442279D9C1006E25B4 /* iCarousel.m */,
+			);
+			path = iCarouselLib;
+			sourceTree = "<group>";
+		};
+		970744472279DA46006E25B4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				970744522279EBC4006E25B4 /* MainTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		970744482279DA52006E25B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9707444E2279E8A6006E25B4 /* Currency.swift */,
+				97074461227B0B79006E25B4 /* Rates.swift */,
+				97E6B4AC227B5B2F0002D180 /* CurrencyRepository.swift */,
+				97E6B4AE227B62320002D180 /* ICurrencyRepository.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		970744492279DA5D006E25B4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				97074458227A0409006E25B4 /* CurrencyView.swift */,
+				9707445C227A0938006E25B4 /* CurrencyLayout.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		97074460227AC3A6006E25B4 /* Customs */ = {
+			isa = PBXGroup;
+			children = (
+				9707445E227AC39D006E25B4 /* CustomTextField.swift */,
+			);
+			path = Customs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +166,7 @@
 				TargetAttributes = {
 					970744222279D8CB006E25B4 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -124,6 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9707445D227A0938006E25B4 /* CurrencyLayout.xib in Resources */,
 				970744342279D8CF006E25B4 /* LaunchScreen.storyboard in Resources */,
 				970744312279D8CF006E25B4 /* Assets.xcassets in Resources */,
 				9707442C2279D8CB006E25B4 /* Main.storyboard in Resources */,
@@ -137,9 +207,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				970744292279D8CB006E25B4 /* ViewController.swift in Sources */,
+				97E6B4AF227B62320002D180 /* ICurrencyRepository.swift in Sources */,
+				9707445F227AC39D006E25B4 /* CustomTextField.swift in Sources */,
+				970744452279D9C1006E25B4 /* iCarousel.m in Sources */,
+				97074459227A040A006E25B4 /* CurrencyView.swift in Sources */,
+				9707444F2279E8A6006E25B4 /* Currency.swift in Sources */,
+				97E6B4AD227B5B2F0002D180 /* CurrencyRepository.swift in Sources */,
 				9707442F2279D8CB006E25B4 /* Carousel.xcdatamodeld in Sources */,
+				97074462227B0B79006E25B4 /* Rates.swift in Sources */,
 				970744272279D8CB006E25B4 /* AppDelegate.swift in Sources */,
+				970744532279EBC4006E25B4 /* MainTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,16 +362,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8VVZ57HTYN;
 				INFOPLIST_FILE = Carousel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = PontiusPilatus.Carousel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Carousel/Carousel-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -302,16 +386,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8VVZ57HTYN;
 				INFOPLIST_FILE = Carousel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = PontiusPilatus.Carousel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Carousel/Carousel-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
