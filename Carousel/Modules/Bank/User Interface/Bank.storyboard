@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Data Source-->
+        <scene sceneID="IAc-gL-l4C">
+            <objects>
+                <viewController storyboardIdentifier="BankViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YrC-yW-Ods" customClass="BankViewController" customModule="Carousel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r8V-SI-Qkg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbI-qm-6OI">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYt-2H-eQc">
+                                        <rect key="frame" x="0.0" y="75" width="414" height="155.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZh-aF-pLT" customClass="iCarousel">
+                                                <rect key="frame" x="8" y="8" width="398" height="139.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="YrC-yW-Ods" id="Pjb-7A-nMY"/>
+                                                    <outlet property="delegate" destination="YrC-yW-Ods" id="UR5-YS-aKw"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="KZh-aF-pLT" secondAttribute="trailing" constant="8" id="4JE-Sf-W9T"/>
+                                            <constraint firstAttribute="width" secondItem="bYt-2H-eQc" secondAttribute="height" multiplier="8:3" id="DZa-av-3K1"/>
+                                            <constraint firstAttribute="bottom" secondItem="KZh-aF-pLT" secondAttribute="bottom" constant="8" id="UAp-TF-Cu2"/>
+                                            <constraint firstItem="KZh-aF-pLT" firstAttribute="top" secondItem="bYt-2H-eQc" secondAttribute="top" constant="8" id="bub-GT-Elr"/>
+                                            <constraint firstItem="KZh-aF-pLT" firstAttribute="leading" secondItem="bYt-2H-eQc" secondAttribute="leading" constant="8" id="ukX-Bu-35F"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MjD-gm-Vtp">
+                                        <rect key="frame" x="0.0" y="305.5" width="414" height="155"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfu-0c-nJr" customClass="iCarousel">
+                                                <rect key="frame" x="8" y="8" width="398" height="139"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="YrC-yW-Ods" id="5uj-ty-PYN"/>
+                                                    <outlet property="delegate" destination="YrC-yW-Ods" id="DAJ-7c-kcK"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="rfu-0c-nJr" firstAttribute="leading" secondItem="MjD-gm-Vtp" secondAttribute="leading" constant="8" id="40i-cT-sgk"/>
+                                            <constraint firstAttribute="bottom" secondItem="rfu-0c-nJr" secondAttribute="bottom" constant="8" id="clj-us-RMC"/>
+                                            <constraint firstItem="rfu-0c-nJr" firstAttribute="top" secondItem="MjD-gm-Vtp" secondAttribute="top" constant="8" id="sVt-iW-a1e"/>
+                                            <constraint firstAttribute="trailing" secondItem="rfu-0c-nJr" secondAttribute="trailing" constant="8" id="syA-O8-Phe"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="MjD-gm-Vtp" firstAttribute="width" secondItem="bYt-2H-eQc" secondAttribute="width" id="09e-Zn-gWq"/>
+                                    <constraint firstAttribute="bottom" secondItem="MjD-gm-Vtp" secondAttribute="bottom" constant="187" id="Cz1-3a-Egd"/>
+                                    <constraint firstItem="MjD-gm-Vtp" firstAttribute="leading" secondItem="vbI-qm-6OI" secondAttribute="leading" id="KnG-hQ-Vwz"/>
+                                    <constraint firstItem="bYt-2H-eQc" firstAttribute="centerX" secondItem="vbI-qm-6OI" secondAttribute="centerX" id="aLd-JJ-SNm"/>
+                                    <constraint firstItem="bYt-2H-eQc" firstAttribute="top" secondItem="vbI-qm-6OI" secondAttribute="top" constant="75" id="bZw-Ek-hQl"/>
+                                    <constraint firstItem="bYt-2H-eQc" firstAttribute="leading" secondItem="vbI-qm-6OI" secondAttribute="leading" id="dk2-E2-FRr"/>
+                                    <constraint firstAttribute="trailing" secondItem="MjD-gm-Vtp" secondAttribute="trailing" id="jME-YE-Fny"/>
+                                    <constraint firstItem="MjD-gm-Vtp" firstAttribute="height" secondItem="bYt-2H-eQc" secondAttribute="height" id="krE-9P-It3"/>
+                                    <constraint firstAttribute="trailing" secondItem="bYt-2H-eQc" secondAttribute="trailing" id="p1K-dC-IF7"/>
+                                    <constraint firstItem="MjD-gm-Vtp" firstAttribute="top" secondItem="bYt-2H-eQc" secondAttribute="bottom" constant="75" id="qdX-DS-ogf"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.87881856479999998" green="0.87881856479999998" blue="0.87881856479999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="vbI-qm-6OI" firstAttribute="leading" secondItem="UP3-Ux-hqf" secondAttribute="leading" id="1pT-c6-M2E"/>
+                            <constraint firstItem="vbI-qm-6OI" firstAttribute="top" secondItem="UP3-Ux-hqf" secondAttribute="top" id="Chb-7D-DYx"/>
+                            <constraint firstItem="vbI-qm-6OI" firstAttribute="trailing" secondItem="UP3-Ux-hqf" secondAttribute="trailing" id="RSO-B3-e8L"/>
+                            <constraint firstItem="vbI-qm-6OI" firstAttribute="bottom" secondItem="UP3-Ux-hqf" secondAttribute="bottom" id="e6w-RM-UfX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UP3-Ux-hqf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bank" id="lSz-IL-oKi">
+                        <barButtonItem key="rightBarButtonItem" title="Exchange" id="txg-IO-ybd">
+                            <connections>
+                                <action selector="transaction:" destination="YrC-yW-Ods" id="DR8-Gg-HJG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bottom" destination="rfu-0c-nJr" id="Thz-YJ-Lzh"/>
+                        <outlet property="scrollView" destination="vbI-qm-6OI" id="OQ1-3t-OWb"/>
+                        <outlet property="top" destination="KZh-aF-pLT" id="E5k-Q2-7A9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xaF-pA-2cJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-168.11594202898553" y="16.304347826086957"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0O8-1v-6Kv">
+            <objects>
+                <navigationController storyboardIdentifier="NavBankViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="waE-oM-OFb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KuU-w3-7hK">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YrC-yW-Ods" kind="relationship" relationship="rootViewController" id="VL0-FQ-C5B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V16-MO-sV1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1162.5" y="17.95774647887324"/>
+        </scene>
+    </scenes>
+</document>

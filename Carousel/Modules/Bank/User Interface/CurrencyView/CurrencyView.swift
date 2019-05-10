@@ -11,7 +11,7 @@ class CurrencyView: UIView {
 
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var balance: UILabel!
-    @IBOutlet weak var amount: CustomTextField!
+    @IBOutlet weak var amount: UITextField!
     @IBOutlet weak var rate: UILabel!
     @IBOutlet weak var sign: UILabel!
     
